@@ -5,14 +5,42 @@ var autoClicks = false;
 var rebirths = 0;
 var timeoutSecs = 10000;
 var timeoutAmount = 5;
-// Saving variables as local cookie values
-document.cookie = "clicks=" + clicks;
-document.cookie = "extraClicks=" + extraClicks;
-document.cookie = "secondClicks=" + secondClicks;
-document.cookie = "autoClicks=" + autoClicks;
-document.cookie = "rebirths=" + rebirths;
-document.cookie = "timeoutSecs=" + timeoutSecs;
-document.cookie = "timeoutAmount=" + timeoutAmount;
+setInterval(function() {
+// Save variable values in cookies
+function saveUserValues() {
+  document.cookie = "clicks=" + clicks;
+  document.cookie = "extraClicks=" + extraClicks;
+  document.cookie = "secondClicks=" + secondClicks;
+  document.cookie = "autoClicks=" + autoClicks;
+  document.cookie = "rebirths=" + rebirths;
+  document.cookie = "timeoutSecs=" + timeoutSecs;
+  document.cookie = "timeoutAmount=" + timeoutAmount;
+}
+
+// Load variable values from cookies on page load
+window.onload = function() {
+  var cookies = document.cookie.split(';');
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+    var cookieParts = cookie.split('=');
+    if (cookieParts[0] === "clicks") {
+      clicks = parseInt(cookieParts[1]);
+    } else if (cookieParts[0] === "extraClicks") {
+      extraClicks = parseInt(cookieParts[1]);
+    } else if (cookieParts[0] === "secondClicks") {
+      secondClicks = parseInt(cookieParts[1]);
+    } else if (cookieParts[0] === "autoClicks") {
+      autoClicks = cookieParts[1] === "true";
+    } else if (cookieParts[0] === "rebirths") {
+      rebirths = parseInt(cookieParts[1]);
+    } else if (cookieParts[0] === "timeoutSecs") {
+      timeoutSecs = parseInt(cookieParts[1]);
+    } else if (cookieParts[0] === "timeoutAmount") {
+      timeoutAmount = parseInt(cookieParts[1]);
+    }
+  }
+};
+}, 5000);
 onEvent("button4","click", function() { 
   clicks = 10000000;
 });

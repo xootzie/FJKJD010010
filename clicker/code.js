@@ -87,10 +87,10 @@ setProperty("label3", "text", extraClicks + 1 + rebirths + " Clicks / " +  secon
 } else {}
 });
 onEvent("mainBtn", "mousedown", function( ){
-    playSound("assets/default.mp3", false);
   if (secondClicks === 0) {
 setProperty("clickNumber", "text", clicks);
 clicks = clicks + 1 + extraClicks + rebirths;
+playSound("assets/default.mp3", false);
 setProperty("clickNumber", "text", clicks);
 } else {
   setProperty("mainBtn", "hidden", true);
@@ -102,6 +102,7 @@ setProperty("clickNumber", "text", clicks);
 setProperty("loadingGif", "hidden", true);
   setProperty("mainBtn", "hidden", false);
 clicks = clicks + 1 + extraClicks + rebirths;
+playSound("assets/default.mp3", false);
 setProperty("clickNumber", "text", clicks);
 setProperty("label10", "text", clicks);
 }, 2000);}

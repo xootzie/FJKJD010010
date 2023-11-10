@@ -5,9 +5,6 @@ var autoClicks = false;
 var rebirths = 0;
 var timeoutSecs = 10000;
 var timeoutAmount = 5;
-setInterval(function() {
-  document.cookie = "clicks=" + clicks;
-}, 5000);
 onEvent("button4","click", function() { 
   clicks = 10000000;
 });
@@ -58,21 +55,35 @@ setProperty("clickNumber", "text", clicks);
 setProperty("label3", "text", extraClicks + 1 + rebirths + " Clicks / " +  secondClicks + " Seconds");
 
 } else {
-  
+
 }
 });
-onEvent("button5", "click", function() {
+onEvent("button5", "click", function() { // auto clicks purchase
 if (clicks >= 5000) {
 setProperty("button5", "hidden", true);
 setProperty("label5", "hidden", false);
 autoClicks = true;
 console.log(autoClicks);
 clicks = clicks - 5000;
-timedLoop(1000, function() {
+timedLoop(3000, function() {
   if (autoClicks === true) {
-  clicks = clicks + 1 + extraClicks;
+  if (secondClicks === 0) {
 setProperty("clickNumber", "text", clicks);
-setProperty("label10", "text", clicks + " Clicks");
+clicks = clicks + 1 + extraClicks + rebirths;
+setProperty("clickNumber", "text", clicks);
+} else {
+  setProperty("mainBtn", "hidden", true);
+  setProperty("loadingGif", "hidden", false);
+  setProperty("clickNumber", "text", clicks);
+  setProperty("label10", "text", clicks);
+  console.log(clicks);
+  setTimeout(function() {
+setProperty("loadingGif", "hidden", true);
+  setProperty("mainBtn", "hidden", false);
+clicks = clicks + 1 + extraClicks + rebirths;
+setProperty("clickNumber", "text", clicks);
+setProperty("label10", "text", clicks);
+}, 2000);}
 } else {
     stopTimedLoop();}
 });
@@ -90,10 +101,10 @@ setProperty("label3", "text", extraClicks + 1 + rebirths + " Clicks / " +  secon
 } else {}
 });
 onEvent("mainBtn", "mousedown", function( ){
+    playSound("sound://default.mp3", false);
   if (secondClicks === 0) {
 setProperty("clickNumber", "text", clicks);
 clicks = clicks + 1 + extraClicks + rebirths;
-playSound("assets/default.mp3", false);
 setProperty("clickNumber", "text", clicks);
 } else {
   setProperty("mainBtn", "hidden", true);
@@ -105,7 +116,6 @@ setProperty("clickNumber", "text", clicks);
 setProperty("loadingGif", "hidden", true);
   setProperty("mainBtn", "hidden", false);
 clicks = clicks + 1 + extraClicks + rebirths;
-playSound("assets/default.mp3", false);
 setProperty("clickNumber", "text", clicks);
 setProperty("label10", "text", clicks);
 }, 2000);}

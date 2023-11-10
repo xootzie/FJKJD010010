@@ -5,22 +5,6 @@ var autoClicks = false;
 var rebirths = 0;
 var timeoutSecs = 10000;
 var timeoutAmount = 5;
-// Save variable to local storage
-localStorage.setItem('clicks', clicks);
-localStorage.setItem('extraClicks', extraClicks);
-localStorage.setItem('secondClicks', secondClicks);
-localStorage.setItem('autoClicks', autoClicks);
-localStorage.setItem('rebirths', rebirths);
-localStorage.setItem('timeoutSecs', timeoutSecs);
-localStorage.setItem('timeoutAmount', timeoutAmount);
-// Retrieve variable from local storage
-clicks = localStorage.getItem('clicks');
-extraClicks = localStorage.getItem('extraClicks');
-secondClicks = localStorage.getItem('secondClicks');
-autoClicks = localStorage.getItem('autoClicks');
-rebirths = localStorage.getItem('rebirths');
-timeoutSecs = localStorage.getItem('timeoutSecs');
-timeoutAmount = localStorage.getItem('timeoutAmount');
 onEvent("button4","click", function() { 
   clicks = 10000000;
 });

@@ -5,6 +5,14 @@ var autoClicks = false;
 var rebirths = 0;
 var timeoutSecs = 10000;
 var timeoutAmount = 5;
+// Saving variables as local cookie values
+document.cookie = "clicks=" + clicks;
+document.cookie = "extraClicks=" + extraClicks;
+document.cookie = "secondClicks=" + secondClicks;
+document.cookie = "autoClicks=" + autoClicks;
+document.cookie = "rebirths=" + rebirths;
+document.cookie = "timeoutSecs=" + timeoutSecs;
+document.cookie = "timeoutAmount=" + timeoutAmount;
 onEvent("button4","click", function() { 
   clicks = 10000000;
 });

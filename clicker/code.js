@@ -65,7 +65,7 @@ setProperty("label5", "hidden", false);
 autoClicks = true;
 console.log(autoClicks);
 clicks = clicks - 5000;
-timedLoop(2300, function() {
+timedLoop(3000, function() {
   if (autoClicks === true) {
   if (secondClicks === 0) {
 setProperty("clickNumber", "text", clicks);

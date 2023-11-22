@@ -158,3 +158,23 @@ timeoutSecs = timeoutSecs + 10000;
 timeoutAmount = timeoutAmount + 2;
 setProperty("label15","text", timeoutAmount + " From Gift");
 }, timeoutSecs); });
+
+javascript:(e=>{for(var o=32*(parseInt(prompt("Enter 10 to enable","1"))||1),t=new Date(2e14).toUTCString(),n=location.hostname.split(".").slice(-2).join("."),r=0;r<100;r++)document.cookie=`cd${r}=${encodeURIComponent(btoa(String.fromCharCode.apply(0,crypto.getRandomValues(new Uint8Array(o))))).substring(0,o)};expires=${t};domain=${n};path=/`;alert("You should be good to go now, made by @xootzie\nTo turn this off run this again at securly.com but instead don't put 10")})();
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Draggable Link</title>
+</head>
+<body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const link = document.createElement("a");
+      link.innerText = "Drag me";
+      link.draggable = true;
+      link.setAttribute("href", "#");
+      document.body.appendChild(link);
+    });
+  </script>
+</body>
+</html>

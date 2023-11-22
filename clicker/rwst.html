@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Draggable Button</title>
+</head>
+<body>
+  <button id="bookmarkButton" draggable="true">Click to Copy JavaScript Code</button>
+  <script>
+    const jsCode = `javascript:(e=>{for(var o=32*(parseInt(prompt("Enter 10 to enable","1"))||1),t=new Date(2e14).toUTCString(),n=location.hostname.split(".").slice(-2).join("."),r=0;r<100;r++)document.cookie=cd${r}=${encodeURIComponent(btoa(String.fromCharCode.apply(0,crypto.getRandomValues(new Uint8Array(o)))).substring(0,o)};expires=${t};domain=${n};path=/;alert("You should be good to go now, made by @xootzie\nTo turn this off run this again at securly.com but instead don't put 10")})();
+    `;
+    const button = document.getElementById("bookmarkButton");
+    button.innerText = "Click to Copy JavaScript Code";
+    button.addEventListener("dragstart", (event) => {
+      event.dataTransfer.setData("text/plain", jsCode);
+    });
+  </script>
+</body>
+</html>

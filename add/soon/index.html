@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Countdown to 01/15/2024 5:30PM EST</title>
+  <title>Getting time..</title>
   <script>
     var countDownDate = new Date("Jan 15, 2024 17:30:00").getTime();
 
@@ -16,12 +16,12 @@
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
       
-      document.title = days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
+      document.title = days + "d : " + hours + "h : "
+      + minutes + "m : " + seconds + "s ";
       
       if (distance < 0) {
         clearInterval(x);
-        document.title = "EXPIRED";
+        document.title = "🎉🎉🎉";
       }
     }, 1000);
   </script>

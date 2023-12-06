@@ -1,3 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown to 01/15/2024 5:30PM EST</title>
+  <script>
+    var countDownDate = new Date("Jan 15, 2024 17:30:00").getTime();
+
+    var x = setInterval(function() {
+
+      var now = new Date().getTime();
+      
+      var distance = countDownDate - now;
+      
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      document.title = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+      
+      if (distance < 0) {
+        clearInterval(x);
+        document.title = "EXPIRED";
+      }
+    }, 1000);
+  </script>
+</head>
+<body>
+
+</body>
+</html>
 <html lang="en" itemscope="" itemtype="http://schema.org/WebPage"><head><script src="https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.en.coKrc9A11Ng.O/m=client/rt=j/sv=1/d=1/ed=1/rs=AHpOoo_J8xjByIzBlcB6zLaAkxsUwdPdIw/cb=gapi.loaded_0?le=scs" async=""></script><script>
 if (window.location.href.indexOf("?code=bypass") > -1) {
   window.location.href = "https://www.funsuki.com/add/index (copy bypass( copies (20).html";

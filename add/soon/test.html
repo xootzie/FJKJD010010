@@ -1,46 +1,47 @@
-<div id="preview" style="display: block;"><style>
- .tcw {
- width: 100%;
- height: 0;
- padding-bottom: 25%;
- }
-</style> <div class="tcw">  <script>
- window.bg_image_id = "";
- window.bg_image_wh_ratio = 1;
- </script> <style> 
- .counter-wrapper {
- border: 0px solid #e6e6e6;
- }
- 
- .header {
- color: #c0b0e9;
- }
- .counter-wrapper-inner {
- background-color: rgba(255,255,255,0);
- }
- .counter-wrapper-inner div, .counter-wrapper-inner span, .header {
- font-family: "Helvetica", sans-serif !important;
- }
- 
- .header {width: 100%; }
- .counter {width: 100%; }
-  </style>  <style> 
- .header { height: 20%; }
- .counter { height: 80%; }
- 
- .value { height: 80%; }
- .label { height: 20%; }
- @media screen and (min-width: 600px) { .value { height: 81%; } .label { height: 19%; } }
- @media screen and (min-width: 650px) { .value { height: 82%; } .label { height: 18%; } }
- @media screen and (min-width: 700px) { .value { height: 83%; } .label { height: 17%; } }
- @media screen and (min-width: 750px) { .value { height: 84%; } .label { height: 16%; } }
- @media screen and (min-width: 800px) { .value { height: 85%; } .label { height: 15%; } }
- 
- .unit { color: #e3ddf2; }
- .unit:last-of-type .value { color: #c0b0e9; }
- </style>  <div class="counter-wrapper"> <a class="counter-wrapper-inner" title="Funsuki Release" href="https://funsuki.com" target="_blank"> <div class="hpad"></div> <div class="hcon"> <div class="hlayer widget-wrapper">  <h1 class="vlayer header" style=""><span style="font-size: 20.3774px; line-height: 22.5469px;">Funsuki Release</span></h1>  <div class="vlayer counter" style="padding: 0px;"> <div class="hlayer unit minus hidden"> <div class="hlayer value"><span>-</span></div> <div class="hlayer label"><span>&hairsp;</span></div> </div>  <div class="hlayer unit" style=""> <div class="hlayer value" style="height: 80%;"><span class="d" style="font-size: 64.1839px; line-height: 72.1875px;">&thinsp;40&thinsp;</span></div> <div class="hlayer label" style="height: 20%;"><span style="font-size: 15.8382px; line-height: 18.0469px;">DAYS</span></div> </div>  <div class="hlayer unit" style=""> <div class="hlayer value" style="height: 80%;"><span style="font-size: 64.1839px; line-height: 72.1875px;">:</span></div> <div class="hlayer label" style="height: 20%;"><span style="font-size: 15.8382px; line-height: 18.0469px;">&hairsp;</span></div> </div>  <div class="hlayer unit" style=""> <div class="hlayer value" style="height: 80%;"><span class="h" style="font-size: 64.1839px; line-height: 72.1875px;">&thinsp;21&thinsp;</span></div> <div class="hlayer label" style="height: 20%;"><span style="font-size: 15.8382px; line-height: 18.0469px;">HOURS</span></div> </div>  <div class="hlayer unit" style=""> <div class="hlayer value" style="height: 80%;"><span style="font-size: 64.1839px; line-height: 72.1875px;">:</span></div> <div class="hlayer label" style="height: 20%;"><span style="font-size: 15.8382px; line-height: 18.0469px;">&hairsp;</span></div> </div>  <div class="hlayer unit" style=""> <div class="hlayer value" style="height: 80%;"><span class="m" style="font-size: 64.1839px; line-height: 72.1875px;">&thinsp;00&thinsp;</span></div> <div class="hlayer label" style="height: 20%;"><span style="font-size: 15.8382px; line-height: 18.0469px;">MINUTES</span></div> </div>  <div class="hlayer unit" style=""> <div class="hlayer value" style="height: 80%;"><span style="font-size: 64.1839px; line-height: 72.1875px;">:</span></div> <div class="hlayer label" style="height: 20%;"><span style="font-size: 15.8382px; line-height: 18.0469px;">&hairsp;</span></div> </div>  <div class="hlayer unit" style=""> <div class="hlayer value" style="height: 80%;"><span class="s" style="font-size: 64.1839px; line-height: 72.1875px;">&thinsp;10&thinsp;</span></div> <div class="hlayer label" style="height: 20%;"><span style="font-size: 15.8382px; line-height: 18.0469px;">SECONDS</span></div> </div>  <audio id="alarm"></audio> </div> </div> </div> <div class="hpad"></div> </a> </div> </div><script>
- $(function(){
- moment.tz.add("EST|EST|50|0||");
- window.countdown("2024-01-15T17:30:00", "stop_counting", 24, "h", "EST", null, "vertical");
- });
-</script></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+      overflow: hidden;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ffbf00;
+      opacity: 0.8;
+      transform: rotate(45deg);
+      will-change: transform;
+      animation: confetti-fall linear infinite;
+    }
+
+    @keyframes confetti-fall {
+      to {
+        transform: translateY(100vh) rotate(45deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    for (let i = 0; i < 200; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDuration = Math.random() * 3 + 1 + 's';
+      document.body.appendChild(confetti);
+    }
+  </script>
+</body>
+</html>
